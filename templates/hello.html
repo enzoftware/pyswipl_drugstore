@@ -1,0 +1,58 @@
+<title>Reusable Form Demo</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="container">
+    <h1>Sistema experto medicina</h1>
+    <form action="" method="post" role="form">
+        {{ form.csrf }}
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Cual es tu nombre?">
+            <h2>Sintomas</h2>
+            <div class="col-sm-8">
+                <input class="form-check-input" type="checkbox" class="form-control" id="fiebre" name="fiebre" >
+                <label class="form-check-label" for="fiebre">
+                    Fiebre
+                </label>
+            </div>
+            <div class="col-sm-8">
+                <input class="form-check-input" type="checkbox" class="form-control" id="diarrea" name="diarrea" >
+                <label class="form-check-label" for="diarrea">
+                    Diarrea
+                </label>
+            </div>
+            <div class="col-sm-8">
+                <input class="form-check-input" type="checkbox" class="form-control" id="headache" name="headache" >
+                <label class="form-check-label" for="headache">
+                    Dolor de cabeza
+                </label>
+            </div>
+            <div class="col-sm-8">
+                <input class="form-check-input" type="checkbox" class="form-control" id="nausea" name="nausea" >
+                <label class="form-check-label" for="nausea">
+                    Nausea
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Registrar sintomas</button>
+        </div>
+    </form>{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+
+    {% for message in messages %}
+    {% if "Error" not in message[1]: %}
+    <div class="alert alert-info">
+        <strong>Success! </strong> {{ message[1] }}</div>
+    {% endif %}
+
+    {% if "Error" in message[1]: %}
+    <div class="alert alert-warning">
+        {{ message[1] }}</div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+</div>
