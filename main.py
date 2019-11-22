@@ -1,7 +1,6 @@
 from flask import Flask, render_template, flash, request
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 from pyswip import Prolog
-from ctypes import *
 
 # App config.
 DEBUG = True
