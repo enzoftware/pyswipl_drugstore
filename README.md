@@ -7,6 +7,6 @@
 - SWI-Prolog 8.0.x
 
 ## Como correrlo:
-
+- Ejecutar pip install -r requirements.txt
 - Ejecutar python main.py
 - Entrar a localhost:5000
